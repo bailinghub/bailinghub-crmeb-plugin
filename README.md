@@ -2,6 +2,8 @@
 
 让 CRMEB 后台拥有一个可以直接操作业务的 AI 助手。
 
+![BailingHub for CRMEB AI 操作助手](docs/assets/crmeb-bailinghub-overview.png)
+
 安装并连接 [BailingHub](https://www.bailinghub.com/) 后，管理员无需离开 CRMEB 后台，就可以用自然语言查询经营信息、查找商品和订单，并在本人已有权限范围内执行商品、订单、用户、营销等后台操作。
 
 它不是一个只会“创建商品”的单功能插件。商品创建与上架是我们已经完成真人验证的一条代表链路；插件真正提供的是一套面向 CRMEB 后台的通用 AI 操作入口。
@@ -42,6 +44,8 @@
 | 门店 | 分销员、门店与物流公司查询 |
 
 实际可用能力取决于 CRMEB 版本、当前管理员权限、已安装业务模块和现有业务数据。这里的“37 项”是能力声明数量，不表示每项都已在所有 CRMEB 环境逐一真人执行。
+
+![CRMEB 后台能力版图](docs/assets/crmeb-bailinghub-capabilities.png)
 
 ## 已完成的真实验证
 
