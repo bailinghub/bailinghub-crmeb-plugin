@@ -34,7 +34,6 @@ jobs:
           coverage: none
 
       - name: Set up Node.js for embedded JavaScript checks
-        if: matrix.php == '8.3'
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -58,9 +57,6 @@ jobs:
         run: |
           set -euo pipefail
           for test_file in tests/*_test.php; do
-            if [[ "$(basename "$test_file")" == "package_contract_test.php" ]]; then
-              continue
-            fi
             if [[ "$MATRIX_PHP" == "7.1" && "$(basename "$test_file")" == "release_artifact_verifier_test.php" ]]; then
               continue
             fi
