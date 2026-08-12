@@ -358,6 +358,8 @@ composer remove crmeb/bailinghub
 <details>
 <summary>维护者构建签名升级包</summary>
 
+如需核对某个历史 Release，请先切换到对应标签再运行制品验真；例如 `v2.4.1` 安装包必须与 `v2.4.1` 源码核对，不应拿后续 `main` 的文档或源码误判旧制品。
+
 发布私钥必须保存在项目目录外、权限设为 `0600`，并通过环境变量传入：
 
 ```bash
