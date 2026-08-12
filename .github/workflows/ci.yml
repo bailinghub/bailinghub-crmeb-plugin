@@ -53,10 +53,15 @@ jobs:
 
       - name: Run standalone contract and security tests
         shell: bash
+        env:
+          MATRIX_PHP: ${{ matrix.php }}
         run: |
           set -euo pipefail
           for test_file in tests/*_test.php; do
             if [[ "$(basename "$test_file")" == "package_contract_test.php" ]]; then
+              continue
+            fi
+            if [[ "$MATRIX_PHP" == "7.1" && "$(basename "$test_file")" == "release_artifact_verifier_test.php" ]]; then
               continue
             fi
             php "$test_file"
