@@ -1,0 +1,19 @@
+{
+    "format_version": 1,
+    "name": "crmeb-bailinghub",
+    "plugin_version": "2.4.1",
+    "spec_version": "2.3.0",
+    "schema_version": 2,
+    "php_min": "7.1.0",
+    "crmeb_edition": "CRMEB-KY-v6",
+    "bailinghub_min": "0.2.0",
+    "release_notes": [
+        "配置页明确区分自建开源版、自建商业版具体租户与在线体验租户，统一推荐复制完整聊天入口嵌入代码",
+        "敏感凭据改由专用安全接口写入 CRMEB runtime 下的插件私密存储，不进入 system_config；已有值只返回是否已配置，留空即保留原值",
+        "后台增强界面改由小型同源加载器加载无扩展名 admin-bundle 动态入口，避免 CRMEB 配置字段长度和常见 Nginx 静态规则导致版本卡片缺失",
+        "升级包完整性检查新增安全配置接口、后台资源控制器与 settings 运行文件，并移除未使用的路由 key",
+        "配置结构版本升级为 2；启动删除旧通用秘密行且不迁移，升级原地保留私密存储、卸载时精确删除",
+        "安装桥接会原子刷新插件生成的 config/bailing.php，移除旧版秘密读取代码"
+    ],
+    "migrations": []
+}

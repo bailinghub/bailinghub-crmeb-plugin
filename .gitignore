@@ -1,0 +1,37 @@
+# macOS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local dependencies and caches
+/vendor/
+/node_modules/
+/composer.lock
+/.phpunit.cache/
+/coverage/
+
+# Local configuration and runtime data
+.env
+.env.*
+!.env.example
+/runtime/
+*.log
+
+# Private signing material (the public verification key is intentionally tracked)
+*.key
+*.private.pem
+release-private.pem
+
+# Generated release artifacts
+/build/
+/dist/
+/release/
+*.zip
+*.sig
+checksums.json
+SHA256SUMS*
+

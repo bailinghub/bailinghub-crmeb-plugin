@@ -1,0 +1,46 @@
+{
+    "name": "crmeb/bailinghub",
+    "description": "面向 CRMEB-KY v6 的百灵中枢（BailingHub）独立接入适配器：安装并完成中枢连接配置后提供工具源与后台聊天入口",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        { "name": "百灵中枢" }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "ext-json": "*",
+        "ext-curl": "*",
+        "ext-openssl": "*",
+        "ext-zip": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\bailing\\": "src/",
+            "Bailing\\Connect\\": "src/connect/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php vendor/crmeb/bailinghub/scripts/install.php"
+        ],
+        "post-update-cmd": [
+            "php vendor/crmeb/bailinghub/scripts/install.php"
+        ]
+    },
+    "extra": {
+        "bailinghub-plugin": {
+            "plugin-version": "2.4.1",
+            "tool-spec-version": "2.3.0",
+            "schema-version": 2
+        },
+        "think": {
+            "services": [
+                "app\\bailing\\BailingService"
+            ]
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "platform-check": false
+    }
+}

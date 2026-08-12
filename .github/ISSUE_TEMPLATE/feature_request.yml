@@ -1,0 +1,48 @@
+name: 能力建议
+description: 建议希望通过 BailingHub 在 CRMEB 后台完成的新能力或体验优化
+title: "[建议]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请从实际经营或后台操作场景出发描述需求。一个清楚的业务目标，比预设具体技术实现更有帮助。
+
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 使用场景
+      description: 现在需要人工在 CRMEB 后台完成什么工作？谁会使用？
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: 希望实现的结果
+      description: 请用一句自然语言指令示例，说明你希望 AI 最终完成或返回什么。
+      placeholder: 例如：帮我……
+    validations:
+      required: true
+
+  - type: textarea
+    id: native-path
+    attributes:
+      label: CRMEB 当前操作入口
+      description: 如果 CRMEB 已经支持该能力，请写明后台菜单和现有操作步骤。
+
+  - type: input
+    id: crmeb-version
+    attributes:
+      label: CRMEB 产品线与版本
+      placeholder: 例如 CRMEB-KY v6.0.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: 补充说明
+      description: 可填写权限、数据范围或期望交互；请勿提交秘密和真实业务数据。
+

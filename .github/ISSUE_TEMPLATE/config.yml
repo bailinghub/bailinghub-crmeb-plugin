@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 私密报告安全问题
+    url: https://github.com/bailinghub/bailinghub-crmeb-plugin/security/advisories/new
+    about: 请勿公开披露漏洞或任何秘密，请使用 GitHub 私密安全报告。
+  - name: 使用交流与问答
+    url: https://github.com/bailinghub/bailinghub-crmeb-plugin/discussions
+    about: 安装咨询、使用方法和一般讨论请优先发到 Discussions。

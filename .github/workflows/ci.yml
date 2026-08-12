@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  php-83:
+    name: PHP 8.3 checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP 8.3
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: curl, json, openssl, zip
+          coverage: none
+
+      - name: Set up Node.js for embedded JavaScript checks
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate Composer metadata
+        run: composer validate --strict --no-check-publish
+
+      - name: Check PHP syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do
+            php -l "$file"
+          done < <(find src scripts tests webinstaller config -type f -name '*.php' -print0)
+
+      - name: Run standalone contract and security tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          for test_file in tests/*_test.php; do
+            if [[ "$(basename "$test_file")" == "package_contract_test.php" ]]; then
+              continue
+            fi
+            php "$test_file"
+          done
